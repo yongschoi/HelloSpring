@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="yongs.temp.mapper.FileInfoMapper">
+
+	<select id="selectFileInfos" resultType="yongs.temp.vo.FileInfo" fetchSize="100">
+		<![CDATA[
+	      SELECT seq, name, size, count, uploader, date
+	      FROM file_info A
+	      ORDER BY A.seq
+		]]>
+	</select>
+
+	<select id="selectMaxSeq" resultType="String">
+		<![CDATA[
+	      SELECT MAX(seq)
+	      FROM file_info
+		]]>
+	</select>
+		
+	<select id="selectFileInfo" parameterType="String" resultType="yongs.temp.vo.FileInfo">
+		<![CDATA[
+	      SELECT seq, name, size, count, uploader, date
+	      FROM file_info A
+	      WHERE A.seq = #{seq}
+		]]>
+	</select>
+		
+	<insert id="insertFileInfo" parameterType="yongs.temp.vo.FileInfo">
+		<![CDATA[
+	      INSERT INTO file_info (seq, name, size, count, uploader, date)
+	      VALUES (#{fileInfo.seq}, #{fileInfo.name}, #{fileInfo.size}, #{fileInfo.count}, #{fileInfo.uploader}, #{fileInfo.date})
+		]]>
+	</insert>
+
+	<update id="updateCount" parameterType="String">
+		<![CDATA[
+	      UPDATE file_info A
+	      SET A.count = A.count + 1
+	      WHERE A.seq = #{seq}
+		]]>
+	</update>
+	
+	<delete id="deleteFileInfo" parameterType="String">
+		<![CDATA[
+	      DELETE FROM file_info
+	      WHERE seq = #{seq}
+		]]>
+	</delete>
+</mapper>

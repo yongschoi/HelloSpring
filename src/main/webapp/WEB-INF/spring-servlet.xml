@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+						http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+						http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<!-- telling container to take care of annotations stuff -->
+	<context:annotation-config />
+	<context:component-scan base-package="yongs.temp" />
+	<mvc:annotation-driven />
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+	<cache:annotation-driven cache-manager="cacheManager" />
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/loginPage" />
+			<mvc:exclude-mapping path="/user/createPage" />
+			<mvc:exclude-mapping path="/user/create" />
+			<mvc:exclude-mapping path="/login" />
+			<bean class="yongs.temp.interceptor.LoginInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="yongs.temp.interceptor.LogInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**" />
+			<mvc:mapping path="/employee/list" />
+			<mvc:exclude-mapping path="/admin/noAuthPage" />
+			<bean class="yongs.temp.interceptor.MenuAuthInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- adding view resolver to show jsp's on browser -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- multipart --> 
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		<!-- 30MB -->
+		<property name="maxUploadSize" value="30971520" /> 
+	</bean>
+
+	<!-- multipart exception -->
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+		<property name="exceptionMappings"> 
+			<props> 
+				<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">/errorPage</prop>
+			</props> 
+		</property> 
+	</bean>
+
+</beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="yongs.temp.mapper.AccountMapper">
+
+	<select id="selectAccount" parameterType="String" resultType="yongs.temp.vo.Account">
+		<![CDATA[
+	      SELECT no, balance, name
+	      FROM account A
+	      WHERE A.no = #{no}
+		]]>
+	</select>
+
+	<update id="updateAccount" parameterType="yongs.temp.vo.Account">
+		<![CDATA[
+	      UPDATE account A
+	      SET A.balance = #{account.balance} 
+	      WHERE A.no = #{account.no}
+		]]>
+	</update>
+</mapper>

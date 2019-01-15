@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd">
+	  
+    <bean name="bankJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean"
+    	p:jobClass="yongs.temp.service.ScheduleAddBalance"
+    	p:durability="true">
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="myBank" value-ref="myBank"/>   
+                <entry key="accountNo" value="20170001"/>              
+                <entry key="balance" value="500"/>              
+            </map>
+        </property>
+    </bean>
+ 
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"
+    	p:jobDetail-ref="bankJob"
+    	p:startDelay="10000"
+    	p:cronExpression="0/30 * * * * ?"/>
+ 
+    <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cronTrigger"/>
+            </list>
+        </property>
+    </bean> 
+</beans>
