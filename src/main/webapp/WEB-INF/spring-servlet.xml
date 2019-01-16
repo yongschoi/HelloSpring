@@ -28,7 +28,7 @@
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="yongs.temp.interceptor.LogInterceptor" />
+			<bean class="yongs.temp.interceptor.LoggingInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/admin/**" />
