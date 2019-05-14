@@ -42,25 +42,14 @@ a:active {
   | &nbsp;
    <a href="${pageContext.request.contextPath}/user/retrieve?userNameParam=${sessionScope.SESSION_USER.userName}">본인정보확인</a>
   | &nbsp;
+  <!--  
    <a href="${pageContext.request.contextPath}/employee/searchForm">Employee Search</a>
-  | &nbsp;
-   <a href="${pageContext.request.contextPath}/selectAccount.transfer">이체업무</a>
-  | &nbsp;
-   <a href="${pageContext.request.contextPath}/account/history">거래내역조회</a>
-  | &nbsp;
-   <a href="${pageContext.request.contextPath}/file/uploadOneFile">Upload One File</a>
-  | &nbsp;
-   <a href="${pageContext.request.contextPath}/file/list">File Download</a>
-  | &nbsp;  
-   <a href="${pageContext.request.contextPath}/mail/mailForm">메일보내기</a>
   | &nbsp;
    <a href="${pageContext.request.contextPath}/ws/UserSoap?wsdl">User 웹서비스(WSDL)</a>
   | &nbsp;
    <a href="${pageContext.request.contextPath}/ws/user/${sessionScope.SESSION_USER.userName}">User 웹서비스(REST)</a>  
   | &nbsp;
-   <a href="${pageContext.request.contextPath}/cache">EhCache 테스트</a>   
-  | &nbsp;
-   <a href="${pageContext.request.contextPath}/admin/updateAuthPage">권한관리</a>
+   <a href="${pageContext.request.contextPath}/cache">EhCache 테스트</a>  
   | &nbsp;
    <a href="${pageContext.request.contextPath}/employee/list">Employee List</a>
   | &nbsp;
@@ -69,7 +58,19 @@ a:active {
    <a href="${pageContext.request.contextPath}/admin/idleForm">idle Test</a>
   | &nbsp;
    <a href="${pageContext.request.contextPath}/admin/sessionTimeoutForm">Session Timeout 설정</a>
-	&nbsp;
+  -->
+   <a href="${pageContext.request.contextPath}/mail/mailForm">메일보내기</a>
+  | &nbsp;  
+   <a href="${pageContext.request.contextPath}/selectAccount.transfer">이체업무</a>
+  | &nbsp;
+   <a href="${pageContext.request.contextPath}/account/history">거래내역조회</a>
+  | &nbsp;
+   <a href="${pageContext.request.contextPath}/file/uploadOneFile">Upload One File</a>
+  | &nbsp;
+   <a href="${pageContext.request.contextPath}/file/list">File Download</a>
+  | &nbsp;
+   <a href="${pageContext.request.contextPath}/admin/updateAuthPage">권한관리</a>
+
 </div>     
 </body>
 </html>

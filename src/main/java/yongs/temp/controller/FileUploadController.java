@@ -58,6 +58,13 @@ public class FileUploadController {
 		return "file/uploadOneFile";
 	}
 
+	@RequestMapping(value = "/file/uploadChunkFile")
+	public String uploadChunkFileHandler(Model model) {
+		// UploadForm myUploadForm = new UploadForm();
+		// model.addAttribute("uploadForm", myUploadForm);
+		return "file/uploadChunkFile";
+	}
+	
 	// GET: Show upload form page.
 	@RequestMapping(value = "/file/uploadMultiFile", method = RequestMethod.GET)
 	public String uploadMultiFileHandler(Model model) {

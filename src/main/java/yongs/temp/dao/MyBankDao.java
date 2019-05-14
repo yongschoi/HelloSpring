@@ -62,7 +62,7 @@ public class MyBankDao extends JdbcDaoSupport {
     	String newNo = null;
     	
     	if(maxNo != null) newNo = String.valueOf(Integer.parseInt(maxNo) + 1);
-    	else newNo = "20170001";
+    	else newNo = "20190001";
     	
     	return newNo;
     }

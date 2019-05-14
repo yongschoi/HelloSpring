@@ -23,7 +23,8 @@
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	
+	<!--
 	<servlet>
 		<servlet-name>cxf</servlet-name>
 		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
@@ -33,6 +34,7 @@
 		<servlet-name>cxf</servlet-name>
 		<url-pattern>/ws/*</url-pattern>
 	</servlet-mapping>
+	-->
 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -58,9 +60,11 @@
 		/WEB-INF/spring-servlet.xml
 		/WEB-INF/context-dbaccess.xml	
 		/WEB-INF/context-mail.xml
- 		/WEB-INF/context-ws.xml
+ 		<!-- 
+ 		/WEB-INF/context-ws.xml 
+ 		/WEB-INF/context-quartz.xml
+ 		-->
   		/WEB-INF/context-cache.xml
-  		/WEB-INF/context-quartz.xml
 		</param-value>
 	</context-param>
 </web-app>

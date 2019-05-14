@@ -47,8 +47,8 @@
 
 	<!-- multipart --> 
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
-		<!-- 30MB -->
-		<property name="maxUploadSize" value="30971520" /> 
+		<!-- 900MB -->
+		<property name="maxUploadSize" value="900971520" /> 
 	</bean>
 
 	<!-- multipart exception -->

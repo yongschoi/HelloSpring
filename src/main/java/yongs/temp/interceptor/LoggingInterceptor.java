@@ -23,7 +23,7 @@ public class LoggingInterceptor extends HandlerInterceptorAdapter {
  
         request.setAttribute("startTime", startTime);
         
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
         MDC.put("sessionId", session.getId());
         
         return true;
