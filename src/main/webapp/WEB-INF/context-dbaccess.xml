@@ -72,7 +72,7 @@
 				<prop key="user">scott</prop>
 				<prop key="password">tiger</prop>
 				<prop key="url">jdbc:mysql://127.0.0.1:3306/temp</prop>
-			</props>
+			</props> 
 		</property>
 		<property name="poolSize" value="5" />
 		<property name="testQuery" value="select 1" />			
