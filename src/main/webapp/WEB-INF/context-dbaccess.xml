@@ -56,7 +56,7 @@
 			<props>
 				<prop key="user">scott</prop>
 				<prop key="password">tiger</prop>
-				<prop key="url">jdbc:mysql://test-db:3306/test</prop>
+				<prop key="url">jdbc:mysql://127.0.0.1:3306/test</prop>
 			</props>
 		</property>
 		<property name="poolSize" value="5" />
@@ -71,7 +71,7 @@
 			<props>
 				<prop key="user">scott</prop>
 				<prop key="password">tiger</prop>
-				<prop key="url">jdbc:mysql://temp-db:3307/temp</prop>
+				<prop key="url">jdbc:mysql://127.0.0.1:3306/temp</prop>
 			</props>
 		</property>
 		<property name="poolSize" value="5" />
